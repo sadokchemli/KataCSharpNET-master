@@ -53,6 +53,7 @@
     <Compile Include="Units\Dragon.cs" />
     <Compile Include="Units\Giant.cs" />
     <Compile Include="Units\Miner.cs" />
+    <Compile Include="Units\MovementType.cs" />
     <Compile Include="Units\Unit.cs" />
     <Compile Include="Units\UnitType.cs" />
   </ItemGroup>

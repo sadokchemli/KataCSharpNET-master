@@ -4,37 +4,33 @@ namespace ClashOfClans.Core.Units
 {
 	public class Giant : Unit
 	{
-		public Giant()
+		public Giant() : base()
 		{
-
+			Mouvement = new Walk();
 		}
 
 		private int _defensiveHitpoints;
 
-		public Giant(int offensiveHitpoints, int defensiveHitpoints)
+		public Giant(int offensiveHitpoints, int defensiveHitpoints) : base(offensiveHitpoints, defensiveHitpoints)
 		{
 			OffensiveHitpoints = offensiveHitpoints;
 			_defensiveHitpoints = defensiveHitpoints;
 		}
 
-		public const string GiantLastMessage = "OUR IRON FISTS WILL BE REMEMBERED FOREVER";
+		public const string LastMessage = "OUR IRON FISTS WILL BE REMEMBERED FOREVER";
+		
+		public override int DefensiveHitpoints => this._defensiveHitpoints;
 
-		public int DefensiveHitpoints => this._defensiveHitpoints;
+		public new int OffensiveHitpoints { get; }
 
-		public int OffensiveHitpoints { get; }
-
-
-		public void ReceiveHit(int attackHitpoints)
+		public override void ReceiveHit(int attackHitpoints)
 		{
 			_defensiveHitpoints -= attackHitpoints;
 			if (DefensiveHitpoints <= 0)
 			{
-				LastMessageBeforeDying = Giant.GiantLastMessage;
+				LastMessageBeforeDying = LastMessage;
 			}
 		}
-		public int Move(int seconds)
-		{
-			return seconds * 3;
-		}	
+
 	}
 }

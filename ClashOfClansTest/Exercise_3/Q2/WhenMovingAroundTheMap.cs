@@ -19,6 +19,7 @@ namespace ClashOfClansTest.Exercise_3.Q2
         }
 
         [TestMethod]
+	
         public void With_Bomber_Unit_For_6_second_Then_It_Should_Run_And_Cover_36_Map_Spaces()
         {
             var bomberUnit = new Bomber();

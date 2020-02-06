@@ -21,7 +21,7 @@ namespace ClashOfClansTest.Exercise_2.Q2
             dragonUnit.ReceiveHit(8000);
 
             Assert.IsTrue(dragonUnit.DefensiveHitpoints <=0);
-            Assert.IsTrue(dragonUnit.LastMessageBeforeDying == Dragon.DragonLastMessage);
+            Assert.IsTrue(dragonUnit.LastMessageBeforeDying == Dragon.LastMessage);
         }
         
         [TestMethod]
@@ -32,7 +32,7 @@ namespace ClashOfClansTest.Exercise_2.Q2
             giantUnit.ReceiveHit(4501);
 
             Assert.IsTrue(giantUnit.DefensiveHitpoints <= 0);
-            Assert.IsTrue(giantUnit.LastMessageBeforeDying == "OUR IRON FISTS WILL BE REMEMBERED FOREVER");
+            Assert.IsTrue(giantUnit.LastMessageBeforeDying == Giant.LastMessage);
         }
 
         [TestMethod]
@@ -43,14 +43,14 @@ namespace ClashOfClansTest.Exercise_2.Q2
 			minerUnit.ReceiveHit(1300);
 
             Assert.IsTrue(minerUnit.DefensiveHitpoints <= 0);
-            Assert.IsTrue(minerUnit.LastMessageBeforeDying.ToLowerInvariant() == Miner.MinerLastMessage);
+            Assert.IsTrue(minerUnit.LastMessageBeforeDying.ToLowerInvariant() == Miner.LastMessage);
         }
 
         [TestMethod]
         public void With_400_OffensiveHitpoints_Then_A_Bomber_Dies_And_Shouts_His_Last_Message()
         {
             var bomberUnit = BlueTrainingCamp.ProduceBomber();
-            var expectedMessage = Bomber.BomberLastMessage;
+            var expectedMessage = Bomber.LastMessage;
 
             bomberUnit.ReceiveHit(400);
 

@@ -8,40 +8,37 @@ namespace ClashOfClans.Core.Units
 
 		private int _offensiveHitpoints;
 
-		public Miner()
+		public Miner() : base()
 		{
+			Mouvement = new TunnelUnder();
 		}
-		public Miner(int offensiveHitpoints, int defensiveHitpoints)
+		public Miner(int offensiveHitpoints, int defensiveHitpoints) : base(offensiveHitpoints, defensiveHitpoints)
 		{
 			_offensiveHitpoints = offensiveHitpoints;
 			_defensiveHitpoints = defensiveHitpoints;
 		}
 
-		public const string MinerLastMessage = "we return in the ground";
+		public const string LastMessage = "we return in the ground";
 
-		public int DefensiveHitpoints
+		public override int DefensiveHitpoints
 		{
 			get { return this._defensiveHitpoints; }
 		}
 
-		public int OffensiveHitpoints
+		public new int OffensiveHitpoints
 		{
 			get { return this._offensiveHitpoints; }
 		}
 
-
-		public void ReceiveHit(int attackHitpoints)
+		public override void ReceiveHit(int attackHitpoints)
 		{
 			_defensiveHitpoints -= attackHitpoints;
 			if (DefensiveHitpoints <= 0)
 			{
-				LastMessageBeforeDying = MinerLastMessage;
+				LastMessageBeforeDying = LastMessage;
 			}
 		}
 
-		public int Move(int seconds)
-		{
-			return seconds * 5;
-		}
 	}
+
 }
